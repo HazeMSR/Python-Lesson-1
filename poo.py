@@ -1,4 +1,5 @@
 from abc import abstractmethod, ABC
+import time
 
 class Electrodomestico(ABC):
 
@@ -54,6 +55,11 @@ class Estufa_Induccion(Electrodomestico):
 		else:
 			print('Prendio la estufa')
 
+	def prender(self, temp_amb):
+		if temp_amb < 0:
+			time.sleep(10)
+			print('Prendio la estufa')
+
 	def utilizar_voltaje(self):
 		print('Divide el voltaje entre cada una de las parrillas de la estufa')
 		print('Con ese voltaje lo utiliza para calentar el metal conductor del utensilio de cocina')
@@ -89,8 +95,11 @@ if __name__ == "__main__":
 		f"y tiene resolucion de {tv_samsung.resolucion}")
 
 	#Ejemplo de polimorfismo
+	#Overriding o sobreescritura
 	tv_samsung.prender()
 	estufita.prender()
+	#Overloading o sobrecarga
+	estufita.prender(-12)
 
 	#Ejemplo abstraccion
 	tv_samsung.utilizar_voltaje()
