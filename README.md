@@ -12,3 +12,6 @@ Requisitos:
 
 
 -Deben utilizar encapsulación en cada uno de los atributos.
+
+
+-Instaciar por lo menos una clase de los objetos que no sean abstractos.
