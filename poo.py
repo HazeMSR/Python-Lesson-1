@@ -48,16 +48,16 @@ class Estufa_Induccion(Electrodomestico):
 		Electrodomestico.__init__(self, precio, potencia, __voltaje)
 		self.magnetismo = magnetismo
 
+	def __str__(self):
+		return f"Esta estufa tiene el voltaje de {self.get_voltaje}"
+
+	def __add__(self, otra):
+		return f"Esta sumando la estufa {self} + {otra}"
 	
 	def prender(self):
 		if self.get_voltaje() < 120:
 			print('No existe voltaje suficiente para calentar')
 		else:
-			print('Prendio la estufa')
-
-	def prender(self, temp_amb):
-		if temp_amb < 0:
-			time.sleep(10)
 			print('Prendio la estufa')
 
 	def utilizar_voltaje(self):
@@ -99,7 +99,11 @@ if __name__ == "__main__":
 	tv_samsung.prender()
 	estufita.prender()
 	#Overloading o sobrecarga
-	estufita.prender(-12)
+	print('\n')
+	print(tv_samsung)
+	print(estufita)
+	print(estufita + estufita)
+	print('\n')
 
 	#Ejemplo abstraccion
 	tv_samsung.utilizar_voltaje()
